@@ -12,7 +12,15 @@
   --icon-color: #afb1b8;
 }
 
-/* Стили для обнуления */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: var(--text-color);
+  background-color: var(--background);
+}
+
+/*==========================Reset======================== */
 html {
   box-sizing: border-box;
 }
@@ -53,15 +61,7 @@ address {
   font-style: normal;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.03em;
-  color: var(--text-color);
-  background-color: var(--background);
-}
-
-/* Components */
+/*================== Components ==========================================*/
 .container {
   margin: 0 auto;
   padding: 0 15px;
@@ -72,6 +72,14 @@ body {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.link-hovered {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-hovered:hover {
+  color: var(--active-color);
 }
 
 /* hidden */
@@ -101,7 +109,9 @@ body {
 /* buttons */
 .button {
   min-width: 73px;
+  padding: 6px 22px;
 
+  font-family: inherit;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
@@ -112,7 +122,9 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 4px;
-  padding: 6px 22px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-active,
@@ -122,12 +134,12 @@ body {
   background-color: var(--active-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
 }
 
 /* social-links */
 .link-svg {
   fill: currentColor;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .socials-list {
@@ -148,6 +160,9 @@ body {
   color: var(--icon-color);
   border-radius: 44px;
   cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .socials-link:hover,
@@ -156,16 +171,12 @@ body {
   color: var(--background);
 }
 
-.socials-img {
-  fill: currentColor;
-}
-
-/* header */
+/*================================ header ====================================*/
 .header {
   border: 1px solid rgba(236, 236, 236, 1);
 }
 
-.header-flex {
+.header .container {
   display: flex;
 }
 
@@ -200,6 +211,24 @@ body {
   margin-right: 50px;
 }
 
+.header-nav-link.active {
+  position: relative;
+  color: var(--active-color);
+}
+
+.header-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  display: block;
+
+  background-color: var(--active-color);
+  border-radius: 2px;
+}
+
 .header-contact-item {
   margin-right: 50px;
 }
@@ -230,17 +259,7 @@ body {
   margin-right: 10px;
 }
 
-.header-nav-link.active,
-.header-nav-link:focus,
-.header-nav-link:hover,
-.header-contact-link:focus,
-.header-contact-link:hover,
-.footer-contact-link:not(.address):hover,
-.footer-contact-link:not(.address):focus {
-  color: var(--active-color);
-}
-
-/* footer */
+/*===================== footer */
 .footer {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -344,7 +363,7 @@ body {
   background-color: var(--primary-hover);
 }
 
-/* advantages */
+/*============================ advantages */
 
 .advantages-list {
   display: flex;
@@ -387,7 +406,7 @@ body {
   color: var(--text-color);
 }
 
-/* responsibilities */
+/* =====================responsibilities */
 
 .section-title {
   margin-bottom: 50px;
@@ -402,11 +421,33 @@ body {
   display: flex;
 }
 
+.responsibilities-item {
+  position: relative;
+}
+
 .responsibilities-item:not(:last-child) {
   margin-right: var(--card-gap);
 }
 
-/* team */
+.responsibled-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  margin-bottom: 0;
+  padding: 27px 0;
+
+  text-align: center;
+  color: var(--background);
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+/*=================== team */
 .team {
   background-color: var(--secondary-color);
 }
@@ -453,7 +494,7 @@ body {
   line-height: 1.19;
 }
 
-/* regular customers */
+/*=== regular customers */
 .regular-costomers-list {
   display: flex;
 }
@@ -472,6 +513,8 @@ body {
   color: var(--icon-color);
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .regular-costomers-link:focus,
@@ -480,7 +523,7 @@ body {
   border-color: var(--active-color);
 }
 
-/* portfolio */
+/*========================= portfolio =========================================*/
 
 /* projects */
 .projects-filter-list {
@@ -515,6 +558,7 @@ body {
 .project-link {
   display: block;
   border: 1px solid #eeeeee;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-link:hover,
@@ -543,4 +587,105 @@ body {
   font-size: 16px;
   line-height: 1.88;
   color: var(--text-color);
+}
+
+.projects .card-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-overlay {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(0);
+
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  margin-bottom: 0;
+
+  color: var(--background);
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: left;
+
+  background: rgba(33, 150, 243, 0.9);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-link:hover .projects-overlay,
+.project-link:focus .projects-overlay {
+  transform: translateY(-100%);
+}
+
+/* ======MODAL WINDOW========================= */
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--background);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.btn-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+
+  cursor: pointer;
+  transition: color 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-btn-close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  color: var(--black);
+}
+
+.modal-btn-close :hover,
+.modal-btn-close :focus {
+  color: var(--active-color);
 }

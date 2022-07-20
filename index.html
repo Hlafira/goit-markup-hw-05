@@ -30,24 +30,27 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
-    <!--Заголовок -->
+    <!--=====================Заголовок ===================================-->
+
     <header class="header">
       <div class="container header-flex">
         <nav class="nav">
           <a class="header-logo logo" href="./index.html"><span class="active">Web</span>Studio</a>
           <ul class="header-nav-list list">
             <li class="header-nav-item">
-              <a class="header-nav-link active" href="./index.html">Студия</a>
+              <a class="header-nav-link active link-hovered" href="./index.html">Студия</a>
             </li>
             <li class="header-nav-item">
-              <a class="header-nav-link" href="./portfolio.html">Портфолио</a>
+              <a class="header-nav-link link-hovered" href="./portfolio.html">Портфолио</a>
             </li>
-            <li class="header-nav-item"><a class="header-nav-link" href="">Контакты</a></li>
+            <li class="header-nav-item">
+              <a class="header-nav-link link-hovered" href="">Контакты</a>
+            </li>
           </ul>
         </nav>
         <ul class="header-contacts-list list">
           <li class="header-contact-item">
-            <a class="header-contact-link" href="mailto:info@devstudio.com">
+            <a class="header-contact-link link-hovered" href="mailto:info@devstudio.com">
               <svg class="header-icon link-svg" width="16" height="12">
                 <use href="./images/icons.svg#icon-envelope"></use>
               </svg>
@@ -55,7 +58,7 @@
             >
           </li>
           <li class="header-contact-item">
-            <a class="header-contact-link" href="tel:+380961111111"
+            <a class="header-contact-link link-hovered" href="tel:+380961111111"
               ><svg class="header-icon link-svg" width="10" height="16">
                 <use href="./images/icons.svg#icon-smartphone"></use>
               </svg>
@@ -67,17 +70,19 @@
     </header>
 
     <main>
-      <!-- Шапка-->
+      <!--============================== Шапка ===========================================-->
+
       <section class="hero section">
         <div class="overlay">
           <div class="container">
             <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-            <button class="button primary" type="button">Заказать услугу</button>
+            <button class="button primary" type="button" data-modal-open>Заказать услугу</button>
           </div>
         </div>
       </section>
 
-      <!-- Приемущества -->
+      <!--================================== Приемущества ================================================-->
+
       <section class="section advantages">
         <div class="container">
           <h2 class="advantages-title visually-hidden">Приемущества</h2>
@@ -130,7 +135,8 @@
         </div>
       </section>
 
-      <!-- Чем мы занимаемся -->
+      <!--================Чем мы занимаемся =====================================-->
+
       <section class="responsibilities section-no-padding">
         <div class="container">
           <h2 class="section-title">Чем мы занимаемся</h2>
@@ -142,6 +148,7 @@
                 height="294"
                 width="370"
               />
+              <p class="responsibled-description">Десктопные приложения</p>
             </li>
             <li class="responsibilities-item">
               <img
@@ -150,6 +157,7 @@
                 height="294"
                 width="370"
               />
+              <p class="responsibled-description">Мобильные приложения</p>
             </li>
             <li class="responsibilities-item">
               <img
@@ -158,15 +166,17 @@
                 height="294"
                 width="370"
               />
+              <p class="responsibled-description">Дизайнерские решения</p>
             </li>
           </ul>
         </div>
       </section>
 
-      <!--Наша команда  -->
+      <!--=========================================Наша команда============================ -->
       <section class="section team">
         <div class="container">
           <h2 class="section-title">Наша команда</h2>
+
           <ul class="team-list list">
             <li class="team-item card">
               <div class="card-thumb">
@@ -213,6 +223,7 @@
                 </ul>
               </div>
             </li>
+
             <li class="team-item card">
               <div class="card-thumb">
                 <img
@@ -258,6 +269,7 @@
                 </ul>
               </div>
             </li>
+
             <li class="team-item card">
               <div class="card-thumb">
                 <img
@@ -303,6 +315,7 @@
                 </ul>
               </div>
             </li>
+
             <li class="team-item card">
               <div class="card-thumb">
                 <img
@@ -352,7 +365,9 @@
           </ul>
         </div>
       </section>
-      <!-- Постоянные клиенты -->
+
+      <!-- ==============Постоянные клиенты ===============================-->
+
       <section class="section regular-costomers">
         <div class="container">
           <h2 class="section-title">Постоянные клиенты</h2>
@@ -404,7 +419,8 @@
       </section>
     </main>
 
-    <!-- Футер -->
+    <!--========================= Футер ================================= -->
+
     <footer class="footer">
       <div class="container footer-container">
         <div class="footer-contacts">
@@ -421,12 +437,14 @@
                 >
               </li>
               <li class="footer-contact-item">
-                <a class="footer-contact-link" href="mailto:info@devstudio.com"
+                <a class="footer-contact-link link-hovered" href="mailto:info@devstudio.com"
                   >info@devstudio.com</a
                 >
               </li>
               <li class="footer-contact-item">
-                <a class="footer-contact-link" href="tel:+380961111111">+38 096 111 11 11</a>
+                <a class="footer-contact-link link-hovered" href="tel:+380961111111"
+                  >+38 096 111 11 11</a
+                >
               </li>
             </ul>
           </address>
@@ -466,5 +484,21 @@
         </div>
       </div>
     </footer>
+
+    <!--================================MODAL============================-->
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="modal-btn-close btn-close link-hovered" data-modal-close>
+          <svg class="link-svg" width="18" height="18">
+            <use href="./images/icons.svg#icon-close-black"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- =================script==================== -->
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
